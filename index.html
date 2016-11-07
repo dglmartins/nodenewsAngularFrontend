@@ -5,47 +5,21 @@
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 		<script src="app.js"></script>
-		<script src="Scripts/Controllers/MainCtrl.js"></script>
-		<script src="Scripts/Services/PostsFactory.js"></script>
+		<script src="scripts/controllers/MainCtrl.js"></script>
+		<script src="scripts/controllers/PostsCtrl.js"></script>
+		<script src="scripts/services/PostsFactory.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
 		<style> .glyphicon-thumbs-up { cursor:pointer } </style>
 	</head>
-	<body ng-app="nodeNews" ng-controller="MainCtrl as main">
+	<body ng-app="nodeNews">
 		
 		<div class="row" style="text-align:center;">
 			<div class="col-sm-6 col-sm-offset-3">
-				
-				<div class="page-header">
-					<h1>NodeNews</h1>
-				</div>
-				
-				
-				<div ng-repeat="post in main.postFactory.posts | orderBy: '-upvotes'">
-					<span class="glyphicon glyphicon-thumbs-up" ng-click="main.incrementUpvotes(post)"></span>
-					{{post.upvotes}}
-					<span style="font-size:20px; margin-left:10px;">
-						<a ng-show="post.link" href="{{post.link}}">
-							{{post.title}}
-						</a>
-						<span ng-hide="post.link">
-						{{post.title}}
-						</span>
-					</span>
-				</div>
-
-
-				<form ng-submit="main.addPost()" style="margin-top:30px;">
-					<h3>Add a new post</h3>
-					<div class="form-group">
-						<input type="text" placeholder="Title" ng-model="title"/>
-					</div>
-					<div class="form-group">
-						<input type="text" placeholder="Link" ng-model="link"/>
-					</div>
-					<button type="submit" class="btn btn-primary">Post</button>
-				</form>
-		
+				<ui-view></ui-view>
 			</div>
 		</div>	
-		
+		<script type="text/ng-template" id="/home.html">
+			
+		</script>	
 	</body>
 </html>
